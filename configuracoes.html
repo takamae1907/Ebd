@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EBD Control - Configurações</title>
+    <link rel="stylesheet" href="style_configuracoes.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="fa-solid fa-church"></i>
+                <h2>EBD Control</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="index.html"><i class="fa-solid fa-table-columns"></i><span>Dashboard</span></a></li>
+                    <li><a href="alunos.html"><i class="fa-solid fa-users"></i><span>Alunos</span></a></li>
+                    <li><a href="frequencia.html"><i class="fa-solid fa-clipboard-user"></i><span>Frequência</span></a></li>
+                    <li><a href="revistas.html"><i class="fa-solid fa-book-bible"></i><span>Revistas</span></a></li>
+                    <li><a href="classes.html"><i class="fa-solid fa-chalkboard-user"></i><span>Classes</span></a></li>
+                    <li><a href="configuracoes.html" class="active"><i class="fa-solid fa-gear"></i><span>Configurações</span></a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header>
+                <div class="header-title">
+                    <h1>Configurações</h1>
+                    <p>Ajuste as preferências e informações gerais do sistema.</p>
+                </div>
+                <button class="primary-button" id="save-settings-button">
+                    <i class="fa-solid fa-floppy-disk"></i>
+                    Salvar Alterações
+                </button>
+            </header>
+
+            <div class="settings-container">
+                <div class="settings-card">
+                    <h2><i class="fa-solid fa-palette"></i> Aparência</h2>
+                    <div class="setting-item">
+                        <label for="theme-toggle">Modo Escuro</label>
+                        <div class="theme-switcher">
+                            <input type="checkbox" id="theme-toggle">
+                        </div>
+                    </div>
+                    <div class="setting-item">
+                        <label>Cor de Destaque</label>
+                        <div class="color-swatches">
+                            <button class="color-swatch selected" data-color="#3b82f6" style="background-color: #3b82f6;"></button>
+                            <button class="color-swatch" data-color="#ef4444" style="background-color: #ef4444;"></button>
+                            <button class="color-swatch" data-color="#16a34a" style="background-color: #16a34a;"></button>
+                            <button class="color-swatch" data-color="#f97316" style="background-color: #f97316;"></button>
+                            <button class="color-swatch" data-color="#8b5cf6" style="background-color: #8b5cf6;"></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-card">
+                    <h2><i class="fa-solid fa-church"></i> Informações da Igreja</h2>
+                    <div class="form-group">
+                        <label for="church-name">Nome da Igreja</label>
+                        <input type="text" id="church-name" value="Igreja Batista Sião">
+                    </div>
+                    <div class="form-group">
+                        <label for="pastor-name">Pastor Local</label>
+                        <input type="text" id="pastor-name" value="Pr. João da Silva">
+                    </div>
+                    <div class="form-group">
+                        <label for="super-name">Superintendente da EBD</label>
+                        <input type="text" id="super-name" value="José Carlos">
+                    </div>
+                </div>
+
+                <div class="settings-card danger-zone">
+                    <h2><i class="fa-solid fa-database"></i> Dados e Backup</h2>
+                    <div class="setting-item">
+                        <span>Exportar todos os dados de alunos para um arquivo.</span>
+                        <button class="action-btn-secondary">Exportar para CSV</button>
+                    </div>
+                    <hr>
+                    <div class="danger-area">
+                        <h3>Zona de Perigo</h3>
+                        <p>Apagar todos os dados do sistema. Esta ação não pode ser desfeita.</p>
+                        <button class="danger-button">Apagar Todos os Dados</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script_configuracoes.js"></script>
+</body>
+
+</html>

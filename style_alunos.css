@@ -1,0 +1,279 @@
+/* CSS Base e Comum */
+
+:root {
+    --bg-color: #f4f7fa;
+    --sidebar-bg: rgba(255, 255, 255, 0.7);
+    --card-bg: #ffffff;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --accent-color: #3b82f6;
+    --border-color: #e2e8f0;
+    --shadow-color: rgba(149, 157, 165, 0.1);
+}
+
+body.dark-mode {
+    --bg-color: #0f172a;
+    --sidebar-bg: rgba(30, 41, 59, 0.7);
+    --card-bg: #1e293b;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --accent-color: #60a5fa;
+    --border-color: #334155;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--sidebar-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-right: 1px solid var(--border-color);
+    padding: 20px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    font-size: 1.2rem;
+    color: var(--text-primary);
+}
+
+.sidebar-header .fa-church {
+    color: var(--accent-color);
+}
+
+.sidebar-nav ul {
+    list-style-type: none;
+}
+
+.sidebar-nav li a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar-nav li a:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+.sidebar-nav li a.active {
+    background-color: var(--accent-color);
+    color: #fff;
+    font-weight: 600;
+}
+
+.sidebar-nav i {
+    width: 20px;
+    text-align: center;
+}
+
+.main-content {
+    margin-left: 260px;
+    width: calc(100% - 260px);
+    padding: 30px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+header p {
+    color: var(--text-secondary);
+}
+
+
+/* CSS Específico da Página de Alunos */
+
+.primary-button {
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s;
+}
+
+.primary-button:hover {
+    background-color: #2563eb;
+}
+
+body.dark-mode .primary-button:hover {
+    background-color: #3b82f6;
+}
+
+.class-list-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+
+.class-card {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    padding: 25px;
+}
+
+.class-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.student-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 5px;
+}
+
+.student-item:not(:last-child) {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.student-name {
+    font-weight: 500;
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    transition: color 0.2s;
+}
+
+.action-btn.edit-btn:hover {
+    color: var(--accent-color);
+}
+
+.action-btn.delete-btn:hover {
+    color: #ef4444;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px;
+    transform: scale(0.95);
+    transition: transform 0.3s;
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.close-modal-btn {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+}
+
+.modal-form .form-group {
+    margin-bottom: 20px;
+}
+
+.modal-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.modal-form input,
+.modal-form select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.modal-form button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+}

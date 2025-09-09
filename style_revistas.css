@@ -1,0 +1,356 @@
+/* CSS Base e Comum */
+
+:root {
+    --bg-color: #f4f7fa;
+    --sidebar-bg: rgba(255, 255, 255, 0.7);
+    --card-bg: #ffffff;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --accent-color: #3b82f6;
+    --border-color: #e2e8f0;
+    --shadow-color: rgba(149, 157, 165, 0.1);
+}
+
+body.dark-mode {
+    --bg-color: #0f172a;
+    --sidebar-bg: rgba(30, 41, 59, 0.7);
+    --card-bg: #1e293b;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --accent-color: #60a5fa;
+    --border-color: #334155;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--sidebar-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-right: 1px solid var(--border-color);
+    padding: 20px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    font-size: 1.2rem;
+    color: var(--text-primary);
+}
+
+.sidebar-header .fa-church {
+    color: var(--accent-color);
+}
+
+.sidebar-nav ul {
+    list-style-type: none;
+}
+
+.sidebar-nav li a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar-nav li a:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+.sidebar-nav li a.active {
+    background-color: var(--accent-color);
+    color: #fff;
+    font-weight: 600;
+}
+
+.sidebar-nav i {
+    width: 20px;
+    text-align: center;
+}
+
+.main-content {
+    margin-left: 260px;
+    width: calc(100% - 260px);
+    padding: 30px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+header p {
+    color: var(--text-secondary);
+}
+
+
+/* CSS Específico da Página de Revistas */
+
+.primary-button {
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s;
+}
+
+.primary-button:hover {
+    background-color: #2563eb;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.revista-card {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px var(--shadow-color);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.revista-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+.revista-cover {
+    aspect-ratio: 16 / 10;
+    background-color: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--border-color);
+}
+
+.revista-cover::before {
+    content: '\f49e';
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 4rem;
+}
+
+.revista-info {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 99px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.status-badge.em-andamento {
+    background-color: #dbeafe;
+    color: #1d4ed8;
+}
+
+.status-badge.concluida {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.status-badge.proxima {
+    background-color: #fef3c7;
+    color: #b45309;
+}
+
+.revista-title {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.revista-classe {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+}
+
+.revista-trimestre {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.revista-actions {
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.action-btn-primary,
+.action-btn-secondary {
+    width: 100%;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.action-btn-primary {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+.action-btn-primary:hover {
+    background-color: #2563eb;
+}
+
+.action-btn-secondary {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.action-btn-secondary:hover {
+    background-color: var(--border-color);
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px;
+    transform: scale(0.95);
+    transition: transform 0.3s;
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.close-modal-btn {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+}
+
+.modal-form .form-group {
+    margin-bottom: 20px;
+}
+
+.modal-form .form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.modal-form .form-row .form-group {
+    flex: 1;
+}
+
+.modal-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.modal-form input,
+.modal-form select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.modal-form button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+}

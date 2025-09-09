@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EBD Control - Classes</title>
+    <link rel="stylesheet" href="style_classes.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="fa-solid fa-church"></i>
+                <h2>EBD Control</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="index.html"><i class="fa-solid fa-table-columns"></i><span>Dashboard</span></a></li>
+                    <li><a href="alunos.html"><i class="fa-solid fa-users"></i><span>Alunos</span></a></li>
+                    <li><a href="frequencia.html"><i class="fa-solid fa-clipboard-user"></i><span>Frequência</span></a></li>
+                    <li><a href="revistas.html"><i class="fa-solid fa-book-bible"></i><span>Revistas</span></a></li>
+                    <li><a href="classes.html" class="active"><i class="fa-solid fa-chalkboard-user"></i><span>Classes</span></a></li>
+                    <li><a href="configuracoes.html"><i class="fa-solid fa-gear"></i><span>Configurações</span></a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header>
+                <div class="header-title">
+                    <h1>Gerenciamento de Classes</h1>
+                    <p>Crie, edite e organize as turmas da sua EBD.</p>
+                </div>
+                <button class="primary-button" id="add-classe-button">
+                    <i class="fa-solid fa-plus"></i>
+                    Adicionar Nova Classe
+                </button>
+            </header>
+
+            <section class="grid-container">
+                <div class="class-info-card">
+                    <div class="class-card-main-info">
+                        <i class="fa-solid fa-chalkboard-user main-icon"></i>
+                        <h3 class="class-name">Classe de Adultos - Heróis da Fé</h3>
+                    </div>
+                    <ul class="class-details-list">
+                        <li><i class="fa-solid fa-user-tie"></i> Professor: <strong>José Carlos</strong></li>
+                        <li><i class="fa-solid fa-location-dot"></i> Local: <strong>Salão Principal</strong></li>
+                        <li><i class="fa-solid fa-users"></i> Alunos Matriculados: <strong>18</strong></li>
+                    </ul>
+                    <div class="class-actions">
+                        <button class="action-btn-primary">Ver Alunos</button>
+                        <button class="action-btn-secondary">Editar</button>
+                    </div>
+                </div>
+
+                <div class="class-info-card">
+                    <div class="class-card-main-info">
+                        <i class="fa-solid fa-chalkboard-user main-icon"></i>
+                        <h3 class="class-name">Classe de Jovens - Conectados</h3>
+                    </div>
+                    <ul class="class-details-list">
+                        <li><i class="fa-solid fa-user-tie"></i> Professora: <strong>Ana Paula</strong></li>
+                        <li><i class="fa-solid fa-location-dot"></i> Local: <strong>Sala 02</strong></li>
+                        <li><i class="fa-solid fa-users"></i> Alunos Matriculados: <strong>25</strong></li>
+                    </ul>
+                    <div class="class-actions">
+                        <button class="action-btn-primary">Ver Alunos</button>
+                        <button class="action-btn-secondary">Editar</button>
+                    </div>
+                </div>
+
+                <div class="class-info-card">
+                    <div class="class-card-main-info">
+                        <i class="fa-solid fa-chalkboard-user main-icon"></i>
+                        <h3 class="class-name">Classe de Crianças - Primeiros Passos</h3>
+                    </div>
+                    <ul class="class-details-list">
+                        <li><i class="fa-solid fa-user-tie"></i> Professora: <strong>Maria Lúcia</strong></li>
+                        <li><i class="fa-solid fa-location-dot"></i> Local: <strong>Anexo Infantil</strong></li>
+                        <li><i class="fa-solid fa-users"></i> Alunos Matriculados: <strong>12</strong></li>
+                    </ul>
+                    <div class="class-actions">
+                        <button class="action-btn-primary">Ver Alunos</button>
+                        <button class="action-btn-secondary">Editar</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="modal-overlay" id="add-classe-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Adicionar Nova Classe</h2>
+                <button class="close-modal-btn" id="close-modal-button">&times;</button>
+            </div>
+            <form class="modal-form">
+                <div class="form-group">
+                    <label for="classe-name">Nome da Classe</label>
+                    <input type="text" id="classe-name" required placeholder="Ex: Classe de Adultos">
+                </div>
+                <div class="form-group">
+                    <label for="classe-teacher">Professor(a) Responsável</label>
+                    <input type="text" id="classe-teacher" required placeholder="Nome do professor">
+                </div>
+                <div class="form-group">
+                    <label for="classe-location">Local / Sala</label>
+                    <input type="text" id="classe-location" required placeholder="Ex: Salão Principal">
+                </div>
+                <button type="submit" class="primary-button">Salvar Classe</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script_classes.js"></script>
+</body>
+
+</html>

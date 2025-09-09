@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EBD Control - Alunos</title>
+    <link rel="stylesheet" href="style_alunos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="fa-solid fa-church"></i>
+                <h2>EBD Control</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="index.html"><i class="fa-solid fa-table-columns"></i><span>Dashboard</span></a></li>
+                    <li><a href="alunos.html" class="active"><i class="fa-solid fa-users"></i><span>Alunos</span></a></li>
+                    <li><a href="frequencia.html"><i class="fa-solid fa-clipboard-user"></i><span>Frequência</span></a></li>
+                    <li><a href="revistas.html"><i class="fa-solid fa-book-bible"></i><span>Revistas</span></a></li>
+                    <li><a href="classes.html"><i class="fa-solid fa-chalkboard-user"></i><span>Classes</span></a></li>
+                    <li><a href="configuracoes.html"><i class="fa-solid fa-gear"></i><span>Configurações</span></a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header>
+                <div class="header-title">
+                    <h1>Gerenciamento de Alunos</h1>
+                    <p>Adicione, edite e visualize os alunos de cada classe.</p>
+                </div>
+                <button class="primary-button" id="add-student-button">
+                    <i class="fa-solid fa-plus"></i>
+                    Adicionar Novo Aluno
+                </button>
+            </header>
+            <section class="class-list-container">
+                <div class="class-card">
+                    <div class="class-card-header">
+                        <h2>Classe de Adultos</h2>
+                        <span>Total: 4 Alunos</span>
+                    </div>
+                    <div class="student-list">
+                        <div class="student-item">
+                            <p class="student-name">João da Silva</p>
+                            <div class="student-actions"><button class="action-btn edit-btn"><i class="fa-solid fa-pencil"></i></button><button class="action-btn delete-btn"><i class="fa-solid fa-trash"></i></button></div>
+                        </div>
+                        <div class="student-item">
+                            <p class="student-name">Maria Oliveira</p>
+                            <div class="student-actions"><button class="action-btn edit-btn"><i class="fa-solid fa-pencil"></i></button><button class="action-btn delete-btn"><i class="fa-solid fa-trash"></i></button></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="class-card">
+                    <div class="class-card-header">
+                        <h2>Classe de Jovens</h2>
+                        <span>Total: 3 Alunos</span>
+                    </div>
+                    <div class="student-list">
+                        <div class="student-item">
+                            <p class="student-name">Carlos Souza</p>
+                            <div class="student-actions"><button class="action-btn edit-btn"><i class="fa-solid fa-pencil"></i></button><button class="action-btn delete-btn"><i class="fa-solid fa-trash"></i></button></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <div class="modal-overlay" id="add-student-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Adicionar Novo Aluno</h2>
+                <button class="close-modal-btn" id="close-modal-button">&times;</button>
+            </div>
+            <form class="modal-form">
+                <div class="form-group"><label for="student-name">Nome Completo</label><input type="text" id="student-name" placeholder="Digite o nome do aluno" required></div>
+                <div class="form-group"><label for="student-birthdate">Data de Nascimento</label><input type="date" id="student-birthdate" required></div>
+                <div class="form-group"><label for="student-class">Classe</label><select id="student-class" required><option value="">Selecione a classe</option><option value="adultos">Classe de Adultos</option><option value="jovens">Classe de Jovens</option></select></div>
+                <button type="submit" class="primary-button">Salvar Aluno</button>
+            </form>
+        </div>
+    </div>
+    <script src="script_alunos.js"></script>
+</body>
+
+</html>

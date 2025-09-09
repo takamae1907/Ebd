@@ -1,0 +1,285 @@
+/* CSS Base e Comum */
+
+:root {
+    --bg-color: #f4f7fa;
+    --sidebar-bg: rgba(255, 255, 255, 0.7);
+    --card-bg: #ffffff;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --accent-color: #3b82f6;
+    --border-color: #e2e8f0;
+    --shadow-color: rgba(149, 157, 165, 0.1);
+}
+
+body.dark-mode {
+    --bg-color: #0f172a;
+    --sidebar-bg: rgba(30, 41, 59, 0.7);
+    --card-bg: #1e293b;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --accent-color: #60a5fa;
+    --border-color: #334155;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--sidebar-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-right: 1px solid var(--border-color);
+    padding: 20px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    font-size: 1.2rem;
+    color: var(--text-primary);
+}
+
+.sidebar-header .fa-church {
+    color: var(--accent-color);
+}
+
+.sidebar-nav ul {
+    list-style-type: none;
+}
+
+.sidebar-nav li a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar-nav li a:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+.sidebar-nav li a.active {
+    background-color: var(--accent-color);
+    color: #fff;
+    font-weight: 600;
+}
+
+.sidebar-nav i {
+    width: 20px;
+    text-align: center;
+}
+
+.main-content {
+    margin-left: 260px;
+    width: calc(100% - 260px);
+    padding: 30px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+header p {
+    color: var(--text-secondary);
+}
+
+
+/* CSS Específico da Página de Configurações */
+
+.primary-button {
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s;
+}
+
+.primary-button:hover {
+    background-color: #2563eb;
+}
+
+.settings-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.settings-card {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    padding: 25px;
+}
+
+.settings-card h2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.settings-card h2 i {
+    color: var(--accent-color);
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.setting-item:not(:last-child) {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.setting-item label,
+.setting-item span {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.color-swatches {
+    display: flex;
+    gap: 10px;
+}
+
+.color-swatch {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.color-swatch.selected {
+    border-width: 3px;
+    border-color: var(--text-primary);
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.action-btn-secondary {
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.action-btn-secondary:hover {
+    background-color: var(--border-color);
+}
+
+.settings-card.danger-zone {
+    border-color: #f87171;
+}
+
+.danger-zone hr {
+    border: none;
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 20px 0;
+}
+
+.danger-area h3 {
+    color: #ef4444;
+    margin-bottom: 8px;
+}
+
+.danger-area p {
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.danger-button {
+    background-color: #ef4444;
+    color: #fff;
+    width: 100%;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.danger-button:hover {
+    background-color: #dc2626;
+}

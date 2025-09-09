@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EBD Control - Frequência</title>
+    <link rel="stylesheet" href="style_frequencia.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="fa-solid fa-church"></i>
+                <h2>EBD Control</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="index.html"><i class="fa-solid fa-table-columns"></i><span>Dashboard</span></a></li>
+                    <li><a href="alunos.html"><i class="fa-solid fa-users"></i><span>Alunos</span></a></li>
+                    <li><a href="frequencia.html" class="active"><i class="fa-solid fa-clipboard-user"></i><span>Frequência</span></a></li>
+                    <li><a href="revistas.html"><i class="fa-solid fa-book-bible"></i><span>Revistas</span></a></li>
+                    <li><a href="classes.html"><i class="fa-solid fa-chalkboard-user"></i><span>Classes</span></a></li>
+                    <li><a href="configuracoes.html"><i class="fa-solid fa-gear"></i><span>Configurações</span></a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <header>
+                <div class="header-title">
+                    <h1>Registro de Frequência</h1>
+                    <p>Selecione a data e marque a presença dos alunos.</p>
+                </div>
+                <div class="header-actions">
+                    <div class="date-selector">
+                        <label for="attendance-date">Data da Chamada:</label>
+                        <input type="date" id="attendance-date">
+                    </div>
+                    <button class="primary-button" id="save-attendance-btn">
+                        <i class="fa-solid fa-check"></i>
+                        Salvar Frequência
+                    </button>
+                </div>
+            </header>
+            <section class="attendance-container">
+                <div class="class-card">
+                    <div class="class-card-header">
+                        <h2>Classe de Adultos</h2>
+                        <span>Marcar Presença</span>
+                    </div>
+                    <div class="attendance-list">
+                        <div class="student-attendance-item">
+                            <p class="student-name">João da Silva</p><label class="attendance-checkbox"><input type="checkbox" checked><span class="checkmark"></span></label></div>
+                        <div class="student-attendance-item">
+                            <p class="student-name">Maria Oliveira</p><label class="attendance-checkbox"><input type="checkbox"><span class="checkmark"></span></label></div>
+                    </div>
+                </div>
+                <div class="class-card">
+                    <div class="class-card-header">
+                        <h2>Classe de Jovens</h2>
+                        <span>Marcar Presença</span>
+                    </div>
+                    <div class="attendance-list">
+                        <div class="student-attendance-item">
+                            <p class="student-name">Carlos Souza</p><label class="attendance-checkbox"><input type="checkbox"><span class="checkmark"></span></label></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script_frequencia.js"></script>
+</body>
+
+</html>

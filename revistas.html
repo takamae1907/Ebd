@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EBD Control - Revistas</title>
+    <link rel="stylesheet" href="style_revistas.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="fa-solid fa-church"></i>
+                <h2>EBD Control</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="index.html"><i class="fa-solid fa-table-columns"></i><span>Dashboard</span></a></li>
+                    <li><a href="alunos.html"><i class="fa-solid fa-users"></i><span>Alunos</span></a></li>
+                    <li><a href="frequencia.html"><i class="fa-solid fa-clipboard-user"></i><span>Frequência</span></a></li>
+                    <li><a href="revistas.html" class="active"><i class="fa-solid fa-book-bible"></i><span>Revistas</span></a></li>
+                    <li><a href="classes.html"><i class="fa-solid fa-chalkboard-user"></i><span>Classes</span></a></li>
+                    <li><a href="configuracoes.html"><i class="fa-solid fa-gear"></i><span>Configurações</span></a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header>
+                <div class="header-title">
+                    <h1>Gerenciamento de Revistas</h1>
+                    <p>Cadastre e organize as revistas da EBD por trimestre.</p>
+                </div>
+                <button class="primary-button" id="add-revista-button">
+                    <i class="fa-solid fa-plus"></i>
+                    Adicionar Nova Revista
+                </button>
+            </header>
+
+            <section class="grid-container">
+                <div class="revista-card">
+                    <div class="revista-cover">
+                    </div>
+                    <div class="revista-info">
+                        <span class="status-badge em-andamento">Em Andamento</span>
+                        <h3 class="revista-title">A Grande Viagem Missionária: A Vida do Apóstolo Paulo</h3>
+                        <p class="revista-classe">Classe de Adultos</p>
+                        <p class="revista-trimestre"><i class="fa-regular fa-calendar-days"></i> 3º Trimestre de 2025</p>
+                    </div>
+                    <div class="revista-actions">
+                        <button class="action-btn-primary">Ver Lições</button>
+                        <button class="action-btn-secondary">Editar</button>
+                    </div>
+                </div>
+
+                <div class="revista-card">
+                    <div class="revista-cover"></div>
+                    <div class="revista-info">
+                        <span class="status-badge concluida">Concluída</span>
+                        <h3 class="revista-title">Os Profetas Menores e a Mensagem para Hoje</h3>
+                        <p class="revista-classe">Classe de Adultos</p>
+                        <p class="revista-trimestre"><i class="fa-regular fa-calendar-days"></i> 2º Trimestre de 2025</p>
+                    </div>
+                    <div class="revista-actions">
+                        <button class="action-btn-primary">Ver Lições</button>
+                        <button class="action-btn-secondary">Editar</button>
+                    </div>
+                </div>
+
+                <div class="revista-card">
+                    <div class="revista-cover"></div>
+                    <div class="revista-info">
+                        <span class="status-badge proxima">Próxima</span>
+                        <h3 class="revista-title">Parábolas de Jesus: Ensinos para a Vida</h3>
+                        <p class="revista-classe">Classe de Jovens</p>
+                        <p class="revista-trimestre"><i class="fa-regular fa-calendar-days"></i> 4º Trimestre de 2025</p>
+                    </div>
+                    <div class="revista-actions">
+                        <button class="action-btn-primary">Ver Lições</button>
+                        <button class="action-btn-secondary">Editar</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="modal-overlay" id="add-revista-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Adicionar Nova Revista</h2>
+                <button class="close-modal-btn" id="close-modal-button">&times;</button>
+            </div>
+            <form class="modal-form">
+                <div class="form-group">
+                    <label for="revista-title">Título da Revista</label>
+                    <input type="text" id="revista-title" required>
+                </div>
+                <div class="form-group">
+                    <label for="revista-class">Classe Destinada</label>
+                    <select id="revista-class" required>
+                        <option value="adultos">Classe de Adultos</option>
+                        <option value="jovens">Classe de Jovens</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="revista-trimestre">Trimestre</label>
+                        <select id="revista-trimestre" required>
+                            <option value="1">1º Trimestre</option>
+                            <option value="2">2º Trimestre</option>
+                            <option value="3">3º Trimestre</option>
+                            <option value="4">4º Trimestre</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="revista-ano">Ano</label>
+                        <input type="number" id="revista-ano" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="revista-status">Status</label>
+                    <select id="revista-status" required>
+                        <option value="proxima">Próxima</option>
+                        <option value="em-andamento">Em Andamento</option>
+                        <option value="concluida">Concluída</option>
+                    </select>
+                </div>
+                <button type="submit" class="primary-button">Salvar Revista</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script_revistas.js"></script>
+</body>
+
+</html>
