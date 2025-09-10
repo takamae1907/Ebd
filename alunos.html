@@ -30,8 +30,10 @@
                 </ul>
             </nav>
         </aside>
+        <div class="sidebar-overlay"></div>
         <main class="main-content">
             <header>
+                <button class="sidebar-toggle" id="sidebar-toggle"><i class="fa-solid fa-bars"></i></button>
                 <div class="header-title">
                     <h1>Gerenciamento de Alunos</h1>
                     <p>Adicione, edite e visualize os alunos de cada classe.</p>
@@ -41,52 +43,138 @@
                     Adicionar Novo Aluno
                 </button>
             </header>
+
             <section class="class-list-container">
-                <div class="class-card">
-                    <div class="class-card-header">
-                        <h2>Classe de Adultos</h2>
-                        <span>Total: 4 Alunos</span>
+                <div class="accordion-item" data-class-id="bercario">
+                    <button class="accordion-header">
+                        <div class="class-info"><h3>Berçário</h3><span>Professora: Tia Ana</span></div>
+                        <div class="class-stats"><div class="stat-item"><i class="fa-solid fa-users"></i><span class="student-count">2</span> Alunos</div><div class="stat-item"><i class="fa-solid fa-user-check"></i><span>100%</span> Presença</div></div>
+                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                    </button>
+                    <div class="accordion-panel">
+                        <div class="student-list"></div>
                     </div>
-                    <div class="student-list">
-                        <div class="student-item">
-                            <p class="student-name">João da Silva</p>
-                            <div class="student-actions"><button class="action-btn edit-btn"><i class="fa-solid fa-pencil"></i></button><button class="action-btn delete-btn"><i class="fa-solid fa-trash"></i></button></div>
-                        </div>
-                        <div class="student-item">
-                            <p class="student-name">Maria Oliveira</p>
-                            <div class="student-actions"><button class="action-btn edit-btn"><i class="fa-solid fa-pencil"></i></button><button class="action-btn delete-btn"><i class="fa-solid fa-trash"></i></button></div>
+                </div>
+                <div class="accordion-item" data-class-id="criancas">
+                    <button class="accordion-header">
+                        <div class="class-info"><h3>Crianças</h3><span>Professora: Tia Bia</span></div>
+                        <div class="class-stats"><div class="stat-item"><i class="fa-solid fa-users"></i><span class="student-count">0</span> Alunos</div><div class="stat-item"><i class="fa-solid fa-user-check"></i><span>-</span> Presença</div></div>
+                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                    </button>
+                    <div class="accordion-panel">
+                        <div class="student-list"></div>
+                    </div>
+                </div>
+                <div class="accordion-item" data-class-id="pre-adolescentes">
+                    <button class="accordion-header">
+                        <div class="class-info"><h3>Pré-Adolescentes</h3><span>Professor: Carlos</span></div>
+                        <div class="class-stats"><div class="stat-item"><i class="fa-solid fa-users"></i><span class="student-count">0</span> Alunos</div><div class="stat-item"><i class="fa-solid fa-user-check"></i><span>-</span> Presença</div></div>
+                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                    </button>
+                    <div class="accordion-panel">
+                        <div class="student-list"></div>
+                    </div>
+                </div>
+                <div class="accordion-item" data-class-id="adolescentes">
+                    <button class="accordion-header">
+                        <div class="class-info"><h3>Adolescentes</h3><span>Professor: Daniel</span></div>
+                        <div class="class-stats"><div class="stat-item"><i class="fa-solid fa-users"></i><span class="student-count">0</span> Alunos</div><div class="stat-item"><i class="fa-solid fa-user-check"></i><span>-</span> Presença</div></div>
+                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                    </button>
+                    <div class="accordion-panel">
+                        <div class="student-list"></div>
+                    </div>
+                </div>
+                <div class="accordion-item" data-class-id="juvenis">
+                    <button class="accordion-header">
+                        <div class="class-info"><h3>Juvenis</h3><span>Professora: Sofia</span></div>
+                        <div class="class-stats"><div class="stat-item"><i class="fa-solid fa-users"></i><span class="student-count">0</span> Alunos</div><div class="stat-item"><i class="fa-solid fa-user-check"></i><span>-</span> Presença</div></div>
+                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                    </button>
+                    <div class="accordion-panel">
+                        <div class="student-list"></div>
+                    </div>
+                </div>
+                <div class="accordion-item" data-class-id="jovens">
+                    <button class="accordion-header">
+                        <div class="class-info"><h3>Jovens</h3><span>Professora: Ana Paula</span></div>
+                        <div class="class-stats"><div class="stat-item"><i class="fa-solid fa-users"></i><span class="student-count">3</span> Alunos</div><div class="stat-item"><i class="fa-solid fa-user-check"></i><span>88%</span> Presença</div></div>
+                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                    </button>
+                    <div class="accordion-panel">
+                        <div class="student-list"></div>
+                    </div>
+                </div>
+                <div class="accordion-item" data-class-id="adultos">
+                    <button class="accordion-header">
+                        <div class="class-info"><h3>Adultos</h3><span>Professor: José Carlos</span></div>
+                        <div class="class-stats"><div class="stat-item"><i class="fa-solid fa-users"></i><span class="student-count">1</span> Aluno</div><div class="stat-item"><i class="fa-solid fa-user-check"></i><span>92%</span> Presença</div></div>
+                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                    </button>
+                    <div class="accordion-panel">
+                        <div class="student-list">
+                            <div class="student-item">
+                                <p class="student-name">João da Silva</p>
+                                <div class="student-actions"><button class="action-btn edit-btn"><i class="fa-solid fa-pencil"></i></button><button class="action-btn delete-btn"><i class="fa-solid fa-trash"></i></button></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="class-card">
-                    <div class="class-card-header">
-                        <h2>Classe de Jovens</h2>
-                        <span>Total: 3 Alunos</span>
+                <div class="accordion-item" data-class-id="irmas">
+                    <button class="accordion-header">
+                        <div class="class-info"><h3>Irmãs (SAF)</h3><span>Professora: Maria</span></div>
+                        <div class="class-stats"><div class="stat-item"><i class="fa-solid fa-users"></i><span class="student-count">0</span> Alunos</div><div class="stat-item"><i class="fa-solid fa-user-check"></i><span>-</span> Presença</div></div>
+                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                    </button>
+                    <div class="accordion-panel">
+                        <div class="student-list"></div>
                     </div>
-                    <div class="student-list">
-                        <div class="student-item">
-                            <p class="student-name">Carlos Souza</p>
-                            <div class="student-actions"><button class="action-btn edit-btn"><i class="fa-solid fa-pencil"></i></button><button class="action-btn delete-btn"><i class="fa-solid fa-trash"></i></button></div>
-                        </div>
+                </div>
+                <div class="accordion-item" data-class-id="discipulado">
+                    <button class="accordion-header">
+                        <div class="class-info"><h3>Discipulado</h3><span>Pastor: João da Silva</span></div>
+                        <div class="class-stats"><div class="stat-item"><i class="fa-solid fa-users"></i><span class="student-count">0</span> Alunos</div><div class="stat-item"><i class="fa-solid fa-user-check"></i><span>-</span> Presença</div></div>
+                        <i class="fa-solid fa-chevron-down toggle-icon"></i>
+                    </button>
+                    <div class="accordion-panel">
+                        <div class="student-list"></div>
                     </div>
                 </div>
             </section>
         </main>
     </div>
+
     <div class="modal-overlay" id="add-student-modal">
         <div class="modal-content">
             <div class="modal-header">
                 <h2>Adicionar Novo Aluno</h2>
                 <button class="close-modal-btn" id="close-modal-button">&times;</button>
             </div>
-            <form class="modal-form">
-                <div class="form-group"><label for="student-name">Nome Completo</label><input type="text" id="student-name" placeholder="Digite o nome do aluno" required></div>
-                <div class="form-group"><label for="student-birthdate">Data de Nascimento</label><input type="date" id="student-birthdate" required></div>
-                <div class="form-group"><label for="student-class">Classe</label><select id="student-class" required><option value="">Selecione a classe</option><option value="adultos">Classe de Adultos</option><option value="jovens">Classe de Jovens</option></select></div>
+            <form class="modal-form" id="add-student-form">
+                <div class="form-group">
+                    <label for="student-name-input">Nome Completo</label>
+                    <input type="text" id="student-name-input" placeholder="Digite o nome do aluno" required>
+                </div>
+                <div class="form-group">
+                    <label for="student-class-select">Classe</label>
+                    <select id="student-class-select" required>
+                        <option value="" disabled selected>Selecione a classe</option>
+                        <option value="bercario">Berçário</option>
+                        <option value="criancas">Crianças</option>
+                        <option value="pre-adolescentes">Pré-Adolescentes</option>
+                        <option value="adolescentes">Adolescentes</option>
+                        <option value="juvenis">Juvenis</option>
+                        <option value="jovens">Jovens</option>
+                        <option value="adultos">Adultos</option>
+                        <option value="irmas">Irmãs (SAF)</option>
+                        <option value="discipulado">Discipulado</option>
+                    </select>
+                </div>
                 <button type="submit" class="primary-button">Salvar Aluno</button>
             </form>
         </div>
     </div>
+
     <script src="script_alunos.js"></script>
 </body>
 

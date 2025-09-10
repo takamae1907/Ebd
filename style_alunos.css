@@ -32,11 +32,11 @@ body.dark-mode {
 body {
     background-color: var(--bg-color);
     color: var(--text-primary);
-    transition: background-color 0.3s, color 0.3s;
 }
 
 .container {
     display: flex;
+    position: relative;
 }
 
 .sidebar {
@@ -50,7 +50,8 @@ body {
     -webkit-backdrop-filter: blur(10px);
     border-right: 1px solid var(--border-color);
     padding: 20px;
-    transition: background-color 0.3s, border-color 0.3s;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1100;
 }
 
 .sidebar-header {
@@ -59,11 +60,6 @@ body {
     gap: 12px;
     margin-bottom: 40px;
     font-size: 1.2rem;
-    color: var(--text-primary);
-}
-
-.sidebar-header .fa-church {
-    color: var(--accent-color);
 }
 
 .sidebar-nav ul {
@@ -103,6 +99,7 @@ body {
     margin-left: 260px;
     width: calc(100% - 260px);
     padding: 30px;
+    transition: margin-left 0.3s ease-in-out;
 }
 
 header {
@@ -110,19 +107,43 @@ header {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
+    gap: 15px;
 }
 
-header h1 {
+.header-title h1 {
     font-size: 2rem;
-    font-weight: 700;
 }
 
-header p {
+.header-title p {
     color: var(--text-secondary);
 }
 
+.sidebar-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    cursor: pointer;
+}
 
-/* CSS Específico da Página de Alunos */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1050;
+}
+
+.sidebar-overlay.active {
+    display: block;
+}
+
+
+/* CSS Específico da Página de Alunos (Coluna Única e Accordion) */
 
 .primary-button {
     background-color: var(--accent-color);
@@ -143,30 +164,94 @@ header p {
     background-color: #2563eb;
 }
 
-body.dark-mode .primary-button:hover {
-    background-color: #3b82f6;
-}
-
 .class-list-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.class-card {
+.accordion-item {
     background-color: var(--card-bg);
-    border-radius: 16px;
     border: 1px solid var(--border-color);
-    padding: 25px;
+    border-radius: 12px;
+    transition: box-shadow 0.2s;
 }
 
-.class-card-header {
+.accordion-item:hover {
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.accordion-header {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    padding: 20px 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+    text-align: left;
+    color: var(--text-primary);
+    position: relative;
+}
+
+.class-info {
+    flex-grow: 1;
+}
+
+.class-info h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.class-info span {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.class-stats {
+    display: flex;
+    gap: 25px;
+    margin: 0 25px;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+}
+
+.stat-item i {
+    color: var(--accent-color);
+}
+
+.stat-item span {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.toggle-icon {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    transition: transform 0.3s ease-in-out;
+}
+
+.accordion-header.active .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    border-top: 1px solid var(--border-color);
+}
+
+.student-list {
+    padding: 10px 25px;
 }
 
 .student-item {
@@ -184,22 +269,21 @@ body.dark-mode .primary-button:hover {
     font-weight: 500;
 }
 
+.student-actions {
+    display: flex;
+    gap: 10px;
+}
+
 .action-btn {
     background: none;
     border: none;
     cursor: pointer;
     font-size: 1rem;
     color: var(--text-secondary);
-    transition: color 0.2s;
 }
 
-.action-btn.edit-btn:hover {
-    color: var(--accent-color);
-}
 
-.action-btn.delete-btn:hover {
-    color: #ef4444;
-}
+/* Modal Styles */
 
 .modal-overlay {
     position: fixed;
@@ -276,4 +360,61 @@ body.dark-mode .primary-button:hover {
 .modal-form button[type="submit"] {
     width: 100%;
     padding: 12px;
+}
+
+
+/* --- Responsividade --- */
+
+@media (max-width: 1024px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    .sidebar.open {
+        transform: translateX(0);
+    }
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+    .sidebar-toggle {
+        display: block;
+    }
+    header {
+        justify-content: start;
+    }
+    .header-title {
+        flex-grow: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        padding: 15px;
+    }
+    header {
+        flex-wrap: wrap;
+    }
+    header h1 {
+        font-size: 1.5rem;
+    }
+    .primary-button {
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    .accordion-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .class-stats {
+        width: 100%;
+        justify-content: space-between;
+        margin: 0;
+    }
+    .toggle-icon {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
 }
